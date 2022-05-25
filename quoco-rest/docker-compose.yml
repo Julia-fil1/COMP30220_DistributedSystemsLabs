@@ -1,0 +1,28 @@
+version: '3'
+services:
+  auldfellas:
+    build: auldfellas
+    ports:
+      - 8081:8081
+    container_name: auldfellas
+  dodgydrivers:
+    build: dodgydrivers
+    ports:
+      - 8082:8082
+    container_name: dodgydrivers
+  girlpower:
+    build: girlpower
+    ports:
+      - 8083:8083
+    container_name: girlpower
+  broker:
+    build: broker
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    container_name: broker
+    depends_on:
+      - auldfellas
+      - dodgydrivers
+      - girlpower
